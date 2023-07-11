@@ -46,7 +46,7 @@ export default function Card({
                 ),
               }}
             >
-              {description}
+              {description ?? ""}
             </ReactMarkdown>
           </Balancer>
         </div>
