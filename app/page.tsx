@@ -19,19 +19,22 @@ export default async function Home() {
 
   return (
     <>
-      <div className="z-10 w-full max-w-xl px-5 xl:px-0">
+    <div className="z-10 w-full max-w-xl px-5 xl:px-0"></div>
           {session ? (
-            <div> 
+            <>
               <h1>Welcome {session?.user?.name}</h1>
 
               {/* @ts-expect-error Server Component */}
               <ListLogs userEmail={session?.user?.email} />
-            </div>
+            </>
             ) : (
-            <DefaultHomeText />
+              <>
+                <DefaultHomeText />
+                {/* @ts-expect-error Server Component */}
+                <DefaultHomeCards />
+              </>
             )
           }
-      </div>
     </>
   );
 }
