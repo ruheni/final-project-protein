@@ -51,6 +51,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  proteinLogs   Protein[]
 }
 
 model VerificationToken {
@@ -59,4 +60,12 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Protein {
+  id            String    @id @default(cuid())
+  name          String?
+  
+  author    User?@relation(fields:[authorId], references:[id])
+  authorId  String?
 }

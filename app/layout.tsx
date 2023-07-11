@@ -7,17 +7,9 @@ import Footer from "@/components/layout/footer";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "Protein Tracking",
   description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  twitter: {
-    card: "summary_large_image",
-    title: "Precedent - Building blocks for your Next.js project",
-    description:
-      "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-    creator: "@steventey",
-  },
-  metadataBase: new URL("https://precedent.dev"),
+    "Protein Tracking is a web app that allows you to track your protein intake. Final project for CSCI 39548.",
   themeColor: "#FFF",
 };
 
@@ -37,8 +29,6 @@ export default async function RootLayout({
         <main className="flex min-h-screen w-full flex-col items-center justify-center py-32">
           {children}
         </main>
-        <Footer />
-        <Analytics />
       </body>
     </html>
   );
