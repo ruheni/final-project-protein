@@ -16,7 +16,7 @@ export default async function ListLogs(props: Props) {
 
     return (
         <div>
-            {results.map(result => <div>{result.id}</div>)}
+            {results.map(result => <div key={result.id}>{result.name}</div>)}
         </div>
     )
 }
