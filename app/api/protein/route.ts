@@ -10,7 +10,7 @@ const prisma = new PrismaClient()
 // Optional fields in body: content
 export async function POST(request: Request) {
   const session= await getServerSession(authOptions)!;
-  const email = session!.user.email!;
+  const email = session?.user?.email!;
   console.log(session);
   console.log(request);
   const result = await prisma.protein.create({
