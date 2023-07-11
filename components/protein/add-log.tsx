@@ -2,33 +2,39 @@
 
 import React, { useState } from 'react';
 
-const submitData = async (e: React.SyntheticEvent) => {
-  e.preventDefault();
-  // first: e.target.pCount.value,
-
-  const data = {
-    name: e.target.pLabel.value,
-    date: e.target.date.value,
-    count: e.target.pCount.value,
-  }
-
-  try {
-    const body = { name: "chicken" };
-    await fetch('/api/protein', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-  } catch (error) {
-    console.error(error);
-  }
-  window.location.reload();
-};
-
 export default function AddLog() {
+  const [name, setName] = useState('');
+  const [date, setDate] = useState('');
+  const [count, setCount] = useState('');
+
+  const submitData = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  
+    const data = {
+      name: name,
+      date: date,
+      count: count,
+    }
+  
+    try {
+      await fetch('/api/protein', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error(error);
+    }
+    window.location.reload();
+  };
+
     return (
       <form onSubmit={submitData}>
-        <input type="date" id="date"></input>
+        <input 
+          type="date" 
+          id="date"
+          onChange={(e) => setDate(e.target.value)}
+        ></input>
         <div>
         <label htmlFor="pCount">Protein Count </label>
           <input
@@ -36,6 +42,7 @@ export default function AddLog() {
             id="pCount"
             name="pCount"
             required
+            onChange={(e) => setCount(e.target.value)}
           />
         </div>
         
@@ -46,9 +53,20 @@ export default function AddLog() {
             id="pLabel"
             name="pLabel"
             required
+            onChange={(e) => setName(e.target.value)}
           />
           </div>
-          <button type="submit">Submit</button>
+          <div style={{padding: 5}}>
+          <button 
+            type="submit"
+            style={{
+              background: 'grey',
+              padding: 10
+            }}
+          >
+            Submit
+          </button>
+          </div>
       </form>
     )
 }
