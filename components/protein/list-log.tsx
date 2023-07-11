@@ -23,7 +23,7 @@ export default async function ListLogs(props: Props) {
     return (
         <>
                     <ul>
-                        {prismaResult?.proteinLogs.map(result => <li key={result.id}>{result.date} - {result.name} - {result.count}</li>)}
+                        {prismaResult?.proteinLogs.map(result => <li key={result.id}>{result.date} - {result.name} - {result.count}g</li>)}
                     </ul>
         </>
     )
