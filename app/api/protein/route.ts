@@ -5,11 +5,8 @@ import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient()
 
-// POST /api/post
-// Required fields in body: title
-// Optional fields in body: content
 export async function POST(request: Request) {
-  const session= await getServerSession(authOptions)!;
+  const session = await getServerSession(authOptions)!;
   const email = session?.user?.email!;
   console.log(session);
   console.log(request);
