@@ -9,13 +9,14 @@ const prisma = new PrismaClient()
 // Required fields in body: title
 // Optional fields in body: content
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  const session= await getServerSession(authOptions)!;
+  const email = session.user.email!;
   console.log(session);
   console.log(request);
   const result = await prisma.protein.create({
     data: {
       name: "chicken",
-      author: { connect: { email: session?.user?.email } },
+      author: { connect: { email: email } },
     },
   });
   return NextResponse.json(result);
