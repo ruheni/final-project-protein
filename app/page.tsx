@@ -23,6 +23,7 @@ export default async function Home() {
           {session ? (
             <div> 
               <h1>Welcome {session?.user?.name}</h1>
+              {/* @ts-expect-error Server Component */}
               <ListLogs authorID={session?.user?.id} />
             </div>
             ) : (
