@@ -4,20 +4,25 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 interface Props {
-    authorID: string;
+    userEmail: string;
 }
 
 export default async function ListLogs(props: Props) {
-    const results = await prisma.protein.findMany({
+    const prismaResult = await prisma.user.findFirst({
         where: {
-        authorId: props.authorID,
+            email: props.userEmail
+        },
+        include:{
+            proteinLogs: true
         }
     });
+
+    console.log(prismaResult);
 
     return (
         <>
             <div>
-                {results.map(result => <div key={result.id}>{result.name}</div>)}
+                {prismaResult?.proteinLogs.map(result => <div key={result.id}>{result.name}</div>)}
             </div>
         </>
     )
