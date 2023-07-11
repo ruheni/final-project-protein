@@ -12,20 +12,17 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import DefaultHomeText from "@/components/home/default-home-text";
-import ListLogs from "@/components/protein/list-log";
+import LoggedIn from "@/components/protein/logged-in";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
 
   return (
     <>
-    <div className="z-10 w-full max-w-xl px-5 xl:px-0"></div>
           {session ? (
             <>
-              <h1>Welcome {session?.user?.name}</h1>
-
-              {/* @ts-expect-error Server Component */}
-              <ListLogs userEmail={session?.user?.email} />
+             {/* @ts-expect-error Server Component */}
+              <LoggedIn userEmail={session?.user?.email}/>
             </>
             ) : (
               <>

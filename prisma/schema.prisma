@@ -65,6 +65,8 @@ model VerificationToken {
 model Protein {
   id            String    @id @default(cuid())
   name          String?
+  count         String?
+  date          String?
   
   author    User?@relation(fields:[authorId], references:[id])
   authorId  String?

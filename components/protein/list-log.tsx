@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PrismaClient } from '@prisma/client'
+import Card from '../home/card';
 
 const prisma = new PrismaClient()
 
@@ -21,9 +22,9 @@ export default async function ListLogs(props: Props) {
 
     return (
         <>
-            <div>
-                {prismaResult?.proteinLogs.map(result => <div key={result.id}>{result.name}</div>)}
-            </div>
+                    <ul>
+                        {prismaResult?.proteinLogs.map(result => <li key={result.id}>{result.date} - {result.name} - {result.count}</li>)}
+                    </ul>
         </>
     )
 }

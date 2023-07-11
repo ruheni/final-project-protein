@@ -18,13 +18,22 @@ export default async function DefaultHomeCards() {
 
 const features = [
     {
-      title: "Beautiful, reusable components",
+      title: "Why protein?",
       large: true,
-      demo: <h1>t</h1>
+      demo:
+      <div style={{padding: 25}}>
+      <p>
+            Protein is the key nutrient and building block for muscle. A high protein diet has been linked to a decrease in appetite, helping with weight loss and calorie deficits in both ways.
+        </p>
+      </div>
     },
     {
-      title: "Performance first",
-      description:
-        "Built on [Next.js](https://nextjs.org/) primitives like `@next/font` and `next/image` for stellar performance."
+      title: "Why track and target protein goals?",
+      demo:
+      <div style={{padding: 25}}>
+      <p>
+      It is recommended to eat around 0.8 - 1 gram of protein per pound of body weight for both muscle gain and fat loss. This target is not easy to hit every day, thus it is important to stay on top of your health goal.
+      </p>
+      </div>
     }
   ];
