@@ -8,9 +8,9 @@ export default function Card({
   demo,
   large,
 }: {
-  title: string;
-  description: string;
-  demo: ReactNode;
+  title?: string;
+  description?: string;
+  demo?: ReactNode;
   large?: boolean;
 }) {
   return (
